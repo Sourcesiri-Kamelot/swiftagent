@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftAgent - The Future of AI is Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        #quantum-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .glass-pane {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .toolkit-btn {
+            transition: all 0.2s ease-in-out;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155; /* slate-700 */
+        }
+        .toolkit-btn:hover {
+            transform: translateY(-4px);
+            background: rgba(51, 65, 85, 0.9);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            border-color: #3b82f6; /* blue-500 */
+        }
+        .pricing-tier {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .pricing-tier:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .glow-highlight {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .primary-btn {
+            background: #2563eb; /* blue-600 */
+            transition: all 0.2s ease;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        .primary-btn:hover {
+            background: #3b82f6; /* blue-500 */
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
+        }
+        .secondary-btn {
+            background: #475569; /* slate-600 */
+            transition: all 0.2s ease;
+             box-shadow: 0 0 15px rgba(100, 116, 139, 0.3);
+        }
+        .secondary-btn:hover {
+            background: #64748b; /* slate-500 */
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(100, 116, 139, 0.5);
+        }
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 3px solid #FFF;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        .loader::after {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 3px solid;
+            border-color: #3b82f6 transparent;
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<body class="overflow-x-hidden">
+
+    <div class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+        <canvas id="quantum-canvas"></canvas>
+        <div class="hero-content p-4 scroll-animate">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">The Future of AI is Personal.</h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                Introducing SwiftAgent. A revolutionary AI that runs completely on your machine, learns from your data, and adapts to your unique business needs.
+            </p>
+            <a href="#pricing" class="primary-btn text-white font-bold py-3 px-8 rounded-full text-lg">
+                Choose Your Agent
+            </a>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+        <section id="problem" class="mb-24 scroll-animate">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Is Your Business Drowning in Complexity?</h2>
+                <p class="text-slate-400">You're an expert in your field, not in AI. SwiftAgent handles the digital chaos so you can thrive.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-pane p-6 rounded-xl">
+                    <div class="text-4xl mb-4">😩</div>
+                    <h3 class="font-semibold text-white text-lg mb-2">Manual Task Overload</h3>
+                    <p class="text-slate-400 text-sm">Repetitive paperwork and data entry consume hours that could be spent on strategy and growth.</p>
+                </div>
+                <div class="glass-pane p-6 rounded-xl">
+                    <div class="text-4xl mb-4">📣</div>
+                    <h3 class="font-semibold text-white text-lg mb-2">Marketing Writer's Block</h3>
+                    <p class="text-slate-400 text-sm">Promotions and social media feel like a chore when the right words don't come easily.</p>
+                </div>
+                <div class="glass-pane p-6 rounded-xl">
+                    <div class="text-4xl mb-4">💬</div>
+                    <h3 class="font-semibold text-white text-lg mb-2">Customer Communication</h3>
+                    <p class="text-slate-400 text-sm">Struggling to keep up with emails and reviews, risking your hard-earned reputation.</p>
+                </div>
+                <div class="glass-pane p-6 rounded-xl">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="font-semibold text-white text-lg mb-2">Data Privacy Concerns</h3>
+                    <p class="text-slate-400 text-sm">Worried about uploading your sensitive business data to large, impersonal cloud AI services.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-intelligence" class="mb-24 scroll-animate">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">A New Kind of Intelligence</h2>
+                <p class="text-slate-400 max-w-3xl mx-auto">SwiftAgent is built on a unique foundation, blending cutting-edge AI with principles of quantum-inspired processing for unparalleled performance and privacy.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4 text-blue-400">●</div>
+                    <h3 class="text-xl font-bold text-white mb-2">The Privacy of Local AI</h3>
+                    <p class="text-slate-400">Your data, your models, your machine. Nothing is ever sent to the cloud. Experience true data sovereignty.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4 text-purple-400">✧</div>
+                    <h3 class="text-xl font-bold text-white mb-2">The Wisdom of Quantum Models</h3>
+                    <p class="text-slate-400">Our agent uses principles derived from quantum computing to explore possibilities and find creative solutions that classic AI misses.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4 text-amber-400">❖</div>
+                    <h3 class="text-xl font-bold text-white mb-2">The Power of Personalization</h3>
+                    <p class="text-slate-400">SwiftAgent is not a generic tool. It's trained on your documents, your goals, and your workflows, becoming a true extension of your business.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="mb-24 scroll-animate">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Your Business, Amplified</h2>
+                <p class="text-slate-400 max-w-3xl mx-auto">This isn't just a chatbot. It's a powerful desktop toolkit with a simple Heads-Up Display designed to perform real business tasks. Click the buttons below to see it in action.</p>
+            </div>
+
+            <div class="glass-pane rounded-2xl p-4 md:p-6 lg:p-8">
+                <div class="bg-slate-900/50 rounded-xl shadow-2xl overflow-hidden">
+                    <div class="h-10 bg-slate-800/50 flex items-center px-4 border-b border-slate-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="flex-grow text-center text-sm text-slate-400 font-mono">SwiftAgent HUD :: Brenda's Bistro</div>
+                    </div>
+
+                    <div class="p-6 md:p-8 grid lg:grid-cols-5 gap-6">
+                        <div class="lg:col-span-2">
+                            <h3 class="font-bold text-xl text-white mb-4">Action Toolkit</h3>
+                            <p class="text-slate-400 mb-6 text-sm">Your business superpowers. One click to perform complex tasks.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                                <button id="btn-marketing" class="toolkit-btn w-full text-left p-4 rounded-lg flex items-center gap-4">
+                                    <div class="text-2xl">📝</div>
+                                    <div><h4 class="font-semibold text-white">Draft Marketing Post</h4><p class="text-xs text-slate-400">Create social media content.</p></div>
+                                </button>
+                                <button id="btn-response" class="toolkit-btn w-full text-left p-4 rounded-lg flex items-center gap-4">
+                                    <div class="text-2xl">📧</div>
+                                    <div><h4 class="font-semibold text-white">Respond to Customer</h4><p class="text-xs text-slate-400">Draft replies to reviews.</p></div>
+                                </button>
+                                <button id="btn-inventory" class="toolkit-btn w-full text-left p-4 rounded-lg flex items-center gap-4">
+                                    <div class="text-2xl">📦</div>
+                                    <div><h4 class="font-semibold text-white">Manage Inventory</h4><p class="text-xs text-slate-400">Update stock from invoices.</p></div>
+                                </button>
+                                <button id="btn-compliance" class="toolkit-btn w-full text-left p-4 rounded-lg flex items-center gap-4">
+                                    <div class="text-2xl">📜</div>
+                                    <div><h4 class="font-semibold text-white">Check Compliance</h4><p class="text-xs text-slate-400">Ask policy questions.</p></div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="output-pane" class="lg:col-span-3 bg-slate-800/30 rounded-lg p-6 border border-slate-700 min-h-[400px] flex flex-col justify-center transition-all duration-300">
+                            <div id="output-initial" class="text-center text-slate-500">
+                                <div class="text-5xl mb-4 animate-pulse">✧</div>
+                                <p class="font-medium">Click a toolkit button to see the result.</p>
+                            </div>
+                            <div id="output-loading" class="hidden text-center text-slate-400">
+                                <div class="loader mx-auto"></div>
+                                <p class="mt-4 text-sm font-medium">Generating Response...</p>
+                            </div>
+                            <div id="output-content" class="hidden">
+                                <!-- Dynamic content will be injected here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pricing" class="mb-24 scroll-animate">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Find Your Perfect Agent</h2>
+                <p class="text-slate-400 max-w-3xl mx-auto">From a simple web tool to a fully private, custom-installed system. Your AI, your choice.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                
+                <div class="pricing-tier glass-pane p-8 rounded-2xl flex flex-col h-full">
+                    <h3 class="text-2xl font-bold text-white mb-2">Web Agent</h3>
+                    <p class="text-slate-400 mb-6">Easy access from any browser, including mobile.</p>
+                    <p class="text-5xl font-bold text-white mb-6">$10<span class="text-lg font-medium text-slate-400">/mo</span></p>
+                    <ul class="space-y-3 text-slate-400 mb-8 flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Core AI Toolkit</li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Standard Business Model</li>
+                        <li class="flex items-center gap-3 text-slate-500">✗ Total Data Privacy</li>
+                        <li class="flex items-center gap-3 text-slate-500">✗ Use Your Own Documents</li>
+                        <li class="flex items-center gap-3 text-slate-500">✗ Offline Access & CLI</li>
+                        <li class="flex items-center gap-3 text-slate-500">✗ On-Site Installation</li>
+                    </ul>
+                    <button class="w-full secondary-btn text-white font-bold py-3 px-6 rounded-lg">Use Web Version</button>
+                </div>
+                <div class="pricing-tier glass-pane p-8 rounded-2xl flex flex-col h-full relative border-2 border-blue-500 glow-highlight">
+                    <div class="absolute top-0 -translate-y-1/2 w-full flex justify-center"><span class="bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase">Most Popular</span></div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Pro App</h3>
+                    <p class="text-blue-400 mb-6">Downloadable app for total privacy and power.</p>
+                    <p class="text-5xl font-bold text-white mb-6">$299<span class="text-lg font-medium text-slate-400">/one-time</span></p>
+                    <ul class="space-y-3 text-slate-300 mb-8 flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Core AI Toolkit</li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Standard Business Model</li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Total Data Privacy</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Use Your Own Documents</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Offline Access & CLI</strong></li>
+                        <li class="flex items-center gap-3 text-slate-500">✗ On-Site Installation</li>
+                    </ul>
+                    <button class="w-full primary-btn text-white font-bold py-3 px-6 rounded-lg">Buy Pro App</button>
+                </div>
+                <div class="pricing-tier glass-pane p-8 rounded-2xl flex flex-col h-full">
+                    <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                    <p class="text-slate-400 mb-6">Our full white-glove service for your business.</p>
+                    <p class="text-5xl font-bold text-white mb-6">$10k+</p>
+                    <ul class="space-y-3 text-slate-300 mb-8 flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Core AI Toolkit</li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span>Standard Business Model</li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Total Data Privacy</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Use Your Own Documents</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>Offline Access & CLI</strong></li>
+                        <li class="flex items-center gap-3"><span class="text-blue-400">✓</span><strong>On-Site Installation</strong></li>
+                    </ul>
+                    <button class="w-full secondary-btn text-white font-bold py-3 px-6 rounded-lg">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center glass-pane py-16 rounded-2xl scroll-animate">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to build your AI co-pilot?</h2>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Choose your plan above or book a free consultation to discuss how SwiftAgent can transform your business.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                 <button class="primary-btn text-white font-bold py-3 px-8 rounded-full">Get Started Now</button>
+                 <button class="secondary-btn text-white font-bold py-3 px-8 rounded-full">Book a Consultation</button>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('quantum-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function initParticles() {
+                particles = [];
+                const particleCount = Math.floor(canvas.width * canvas.height / 20000);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        radius: Math.random() * 1.5 + 0.5
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(147, 197, 253, 0.8)';
+                    ctx.fill();
+                });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(165, 180, 252, ${1 - dist / 100})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+
+            resizeCanvas();
+            initParticles();
+            animate();
+
+            const buttons = {
+                marketing: document.getElementById('btn-marketing'),
+                response: document.getElementById('btn-response'),
+                inventory: document.getElementById('btn-inventory'),
+                compliance: document.getElementById('btn-compliance'),
+            };
+
+            const outputPane = document.getElementById('output-pane');
+            const initialOutput = document.getElementById('output-initial');
+            const loadingOutput = document.getElementById('output-loading');
+            const contentOutput = document.getElementById('output-content');
+            
+            let inventoryChart = null;
+
+            function showLoading() {
+                initialOutput.classList.add('hidden');
+                contentOutput.classList.add('hidden');
+                loadingOutput.classList.remove('hidden');
+                contentOutput.innerHTML = '';
+            }
+
+            function showContent(html) {
+                loadingOutput.classList.add('hidden');
+                contentOutput.innerHTML = html;
+                contentOutput.classList.remove('hidden');
+            }
+            
+            function setActiveButton(activeButton) {
+                 Object.values(buttons).forEach(btn => btn.classList.remove('bg-blue-500/20', 'border-blue-500'));
+                 if (activeButton) activeButton.classList.add('bg-blue-500/20', 'border-blue-500');
+            }
+
+            // Demo functionality with static responses
+            buttons.marketing.addEventListener('click', async () => {
+                setActiveButton(buttons.marketing);
+                showLoading();
+                
+                setTimeout(() => {
+                    const response = `
+                        <div class="glass-pane p-3 rounded-md mb-3">🌮 Taco Tuesday is here! Get 2-for-1 margaritas with every taco order! 🍹 Come hungry, leave happy! #TacoTuesday #BrendasBistro #MargaritaSpecial</div>
+                        <div class="glass-pane p-3 rounded-md mb-3">🎉 It's Taco Tuesday at Brenda's! 🌮 Double the margaritas, double the fun! Join us for authentic flavors and unbeatable deals! #TacoTuesday #HappyHour #LocalEats</div>
+                    `;
+                    showContent(`<h4 class="font-bold text-white mb-3">✨ Marketing Drafts:</h4><div class="space-y-2 text-sm">${response}</div>`);
+                }, 2000);
+            });
+
+            buttons.response.addEventListener('click', async () => {
+                setActiveButton(buttons.response);
+                showLoading();
+                
+                setTimeout(() => {
+                    const response = "Thank you so much for your feedback! We're thrilled you enjoyed the food - our chefs work hard to create delicious dishes. We sincerely apologize for the slower service during your visit. We're actively working to improve our service times while maintaining our quality standards. We'd love to welcome you back soon for a better experience. Please don't hesitate to reach out if there's anything else we can do!";
+                    showContent(`<h4 class="font-bold text-white mb-3">✨ Customer Response Draft:</h4><div class="glass-pane p-4 rounded-md text-sm space-y-2"><p><strong>Original Review:</strong> "The food was great but the service was a bit slow."</p><hr class="border-slate-600"><p><strong>Drafted Reply:</strong> ${response}</p></div>`);
+                }, 2000);
+            });
+
+            buttons.compliance.addEventListener('click', async () => {
+                setActiveButton(buttons.compliance);
+                showLoading();
+                
+                setTimeout(() => {
+                    const response = "According to FDA food safety guidelines, chicken should be cooked to an internal temperature of 165°F (74°C) to ensure it's safe to eat. This temperature should be measured at the thickest part of the meat using a food thermometer. For storage, raw chicken should be kept at 40°F (4°C) or below in the refrigerator and used within 1-2 days of purchase.";
+                    showContent(`<h4 class="font-bold text-white mb-3">✨ Compliance Check:</h4><div class="glass-pane p-4 rounded-md text-sm space-y-2"><p><strong>Question:</strong> "What is the proper temperature for cooking chicken?"</p><hr class="border-slate-600"><p><strong>Answer:</strong> ${response}</p></div>`);
+                }, 2000);
+            });
+
+            buttons.inventory.addEventListener('click', async () => {
+                setActiveButton(buttons.inventory);
+                showLoading();
+                
+                setTimeout(() => {
+                    const inventoryData = {
+                        labels: ['Avocados (lbs)', 'Tortillas (pk)', 'Limes (cs)', 'Chicken (lbs)'],
+                        data: [80, 120, 5, 95]
+                    };
+                    
+                    const chartHtml = `<h4 class="font-bold text-white mb-3">Inventory Update:</h4><p class="text-sm text-slate-400 mb-4">OK, I've read the invoice. Here's the updated stock level:</p><div class="chart-container relative h-64 w-full"><canvas id="inventoryChart"></canvas></div><div id="inventory-summary" class="mt-4 text-center text-slate-400 text-sm">✨ AI Summary: Limes are running low at only 5 cases - consider reordering soon! 🍋</div>`;
+                    showContent(chartHtml);
+
+                    const ctxChart = document.getElementById('inventoryChart').getContext('2d');
+                    if (inventoryChart) inventoryChart.destroy();
+
+                    inventoryChart = new Chart(ctxChart, {
+                        type: 'bar',
+                        data: {
+                            labels: inventoryData.labels,
+                            datasets: [{
+                                label: 'Stock Level',
+                                data: inventoryData.data,
+                                backgroundColor: ['rgba(59, 130, 246, 0.5)','rgba(139, 92, 246, 0.5)','rgba(236, 72, 153, 0.5)','rgba(251, 146, 60, 0.5)'],
+                                borderColor: ['#3b82f6','#8b5cf6','#ec4899','#f97316'],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#94a3b8' } },
+                                y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#94a3b8' } }
+                            }
+                        }
+                    });
+                }, 2000);
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
