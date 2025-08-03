@@ -24,17 +24,53 @@ except ImportError:
     sys.exit(1)
 
 # Import our toolkit components
+import sys
+sys.path.append(str(Path(__file__).parent.parent))
+
 try:
-    from ..Core.llm_manager import llm_manager, LLMRequest, chat, chat_stream
-    from ..Tools.file_operations import file_ops, read_file, write_file, list_files
-    from ..Tools.image_processor import image_processor, read_image, extract_text_from_image, describe_image
-except ImportError:
-    # Fallback for standalone execution
-    import sys
-    sys.path.append(str(Path(__file__).parent.parent))
     from Core.llm_manager import llm_manager, LLMRequest, chat, chat_stream
-    from Tools.file_operations import file_ops, read_file, write_file, list_files
-    from Tools.image_processor import image_processor, read_image, extract_text_from_image, describe_image
+    from Tools.file_operations import file_ops
+    from Tools.image_processor import image_processor
+    from Core.memory_system import memory_system
+    from Core.self_healing import self_healing
+except ImportError as e:
+    logger.error(f"Failed to import toolkit components: {e}")
+    # Create mock objects for testing
+    class MockLLMManager:
+        def __init__(self):
+            self.providers = {}
+        async def initialize_providers(self):
+            pass
+        def get_stats(self):
+            return {"providers": 0}
+    
+    class MockFileOps:
+        def __init__(self):
+            self.security = type('obj', (object,), {'safe_directories': []})()
+    
+    class MockImageProcessor:
+        def __init__(self):
+            self.capabilities = {"basic_processing": False}
+    
+    class MockMemorySystem:
+        def __init__(self):
+            self.memories = {}
+            self.conversations = {}
+    
+    class MockSelfHealing:
+        def __init__(self):
+            self.errors = []
+            self.performance_metrics = []
+        def get_error_summary(self):
+            return {"total_errors": 0}
+        def get_performance_summary(self):
+            return {"total_operations": 0}
+    
+    llm_manager = MockLLMManager()
+    file_ops = MockFileOps()
+    image_processor = MockImageProcessor()
+    memory_system = MockMemorySystem()
+    self_healing = MockSelfHealing()
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -332,6 +368,163 @@ TOOLS = [
             "properties": {},
             "required": []
         }
+    },
+    
+    # Memory and learning tools
+    {
+        "name": "add_memory",
+        "description": "Add a new memory entry to the persistent memory system",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "object",
+                    "description": "Memory content as JSON object"
+                },
+                "memory_type": {
+                    "type": "string",
+                    "description": "Type of memory (conversation, preference, learning, fact)",
+                    "default": "conversation"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Tags for categorizing the memory"
+                },
+                "importance": {
+                    "type": "number",
+                    "description": "Importance score (0.0-1.0)",
+                    "default": 0.5
+                }
+            },
+            "required": ["content"]
+        }
+    },
+    {
+        "name": "search_memories",
+        "description": "Search memories by query, type, or tags",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Search query"
+                },
+                "memory_type": {
+                    "type": "string",
+                    "description": "Filter by memory type"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of results",
+                    "default": 10
+                }
+            },
+            "required": ["query"]
+        }
+    },
+    {
+        "name": "get_memory_context",
+        "description": "Get relevant memory context for a query",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "Query to get context for"
+                },
+                "user_id": {
+                    "type": "string",
+                    "description": "User ID for personalized context"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "Maximum number of context items",
+                    "default": 5
+                }
+            },
+            "required": ["query"]
+        }
+    },
+    
+    # Self-healing and optimization tools
+    {
+        "name": "record_error",
+        "description": "Record an error for analysis and auto-resolution",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "error_type": {
+                    "type": "string",
+                    "description": "Type of error"
+                },
+                "error_message": {
+                    "type": "string",
+                    "description": "Error message"
+                },
+                "context": {
+                    "type": "object",
+                    "description": "Error context information"
+                }
+            },
+            "required": ["error_type", "error_message"]
+        }
+    },
+    {
+        "name": "record_performance",
+        "description": "Record performance metric for optimization",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "operation": {
+                    "type": "string",
+                    "description": "Operation name"
+                },
+                "duration": {
+                    "type": "number",
+                    "description": "Operation duration in seconds"
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "Whether operation succeeded"
+                },
+                "metadata": {
+                    "type": "object",
+                    "description": "Additional metadata"
+                }
+            },
+            "required": ["operation", "duration", "success"]
+        }
+    },
+    {
+        "name": "get_error_summary",
+        "description": "Get summary of recent errors and resolutions",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "days": {
+                    "type": "integer",
+                    "description": "Number of days to look back",
+                    "default": 7
+                }
+            },
+            "required": []
+        }
+    },
+    {
+        "name": "get_performance_summary",
+        "description": "Get summary of recent performance metrics",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "days": {
+                    "type": "integer",
+                    "description": "Number of days to look back",
+                    "default": 7
+                }
+            },
+            "required": []
+        }
     }
 ]
 
@@ -582,6 +775,16 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
                     "status": "healthy" if image_processor.capabilities["basic_processing"] else "limited",
                     "capabilities": image_processor.capabilities
                 },
+                "memory_system": {
+                    "status": "healthy",
+                    "memories_count": len(memory_system.memories),
+                    "conversations_count": len(memory_system.conversations)
+                },
+                "self_healing": {
+                    "status": "healthy",
+                    "errors_count": len(self_healing.errors),
+                    "performance_metrics_count": len(self_healing.performance_metrics)
+                },
                 "mcp_server": {
                     "status": "healthy",
                     "tools_count": len(TOOLS)
@@ -600,6 +803,96 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
             return [types.TextContent(
                 type="text",
                 text=f"Health Check Results:\n\n{health_json}"
+            )]
+        
+        # Memory and learning tools
+        elif name == "add_memory":
+            content = arguments["content"]
+            memory_type = arguments.get("memory_type", "conversation")
+            tags = arguments.get("tags", [])
+            importance = arguments.get("importance", 0.5)
+            
+            memory_id = memory_system.add_memory(content, memory_type, tags, importance)
+            return [types.TextContent(
+                type="text",
+                text=f"Memory added successfully with ID: {memory_id}"
+            )]
+        
+        elif name == "search_memories":
+            query = arguments["query"]
+            memory_type = arguments.get("memory_type")
+            limit = arguments.get("limit", 10)
+            
+            memories = memory_system.search_memories(query, memory_type, limit)
+            memories_json = json.dumps([asdict(m) for m in memories], indent=2, default=str)
+            return [types.TextContent(
+                type="text",
+                text=f"Memory search results for '{query}':\n\n{memories_json}"
+            )]
+        
+        elif name == "get_memory_context":
+            query = arguments["query"]
+            user_id = arguments.get("user_id")
+            limit = arguments.get("limit", 5)
+            
+            context = memory_system.get_context_for_query(query, user_id, limit)
+            context_json = json.dumps(context, indent=2, default=str)
+            return [types.TextContent(
+                type="text",
+                text=f"Memory context for '{query}':\n\n{context_json}"
+            )]
+        
+        # Self-healing and optimization tools
+        elif name == "record_error":
+            error_type = arguments["error_type"]
+            error_message = arguments["error_message"]
+            context = arguments.get("context", {})
+            
+            # Create a mock exception for recording
+            class MockError(Exception):
+                def __init__(self, message):
+                    self.message = message
+                    super().__init__(message)
+            
+            error = MockError(error_message)
+            error.__class__.__name__ = error_type
+            
+            self_healing.record_error(error, context)
+            return [types.TextContent(
+                type="text",
+                text=f"Error recorded: {error_type} - {error_message}"
+            )]
+        
+        elif name == "record_performance":
+            operation = arguments["operation"]
+            duration = arguments["duration"]
+            success = arguments["success"]
+            metadata = arguments.get("metadata", {})
+            
+            self_healing.record_performance(operation, duration, success, metadata)
+            return [types.TextContent(
+                type="text",
+                text=f"Performance recorded: {operation} ({duration}s, success={success})"
+            )]
+        
+        elif name == "get_error_summary":
+            days = arguments.get("days", 7)
+            
+            summary = self_healing.get_error_summary(days)
+            summary_json = json.dumps(summary, indent=2)
+            return [types.TextContent(
+                type="text",
+                text=f"Error Summary (last {days} days):\n\n{summary_json}"
+            )]
+        
+        elif name == "get_performance_summary":
+            days = arguments.get("days", 7)
+            
+            summary = self_healing.get_performance_summary(days)
+            summary_json = json.dumps(summary, indent=2)
+            return [types.TextContent(
+                type="text",
+                text=f"Performance Summary (last {days} days):\n\n{summary_json}"
             )]
         
         else:
