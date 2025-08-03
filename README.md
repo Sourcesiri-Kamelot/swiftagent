@@ -1,5 +1,7 @@
 # 🚀 OpenLLM Toolkit - Universal Free LLM Integration Platform
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent&env=OPENLLM_MODE&env=OLLAMA_HOST&env=HUGGINGFACE_API_KEY&env=GROQ_API_KEY&env-description=OpenLLM%20Configuration&env-link=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent%23environment-variables&project-name=openllm-toolkit&repository-name=openllm-toolkit&redirect-url=https%3A%2F%2Fopenllm-toolkit.vercel.app&demo-title=OpenLLM%20Toolkit&demo-description=Universal%20AI%20toolkit%20with%20free%20LLM%20providers%2C%20file%20operations%2C%20and%20image%20processing&demo-url=https%3A%2F%2Fopenllm-toolkit.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FSourcesiri-Kamelot%2Fswiftagent%2Fmain%2Fdocs%2Fdemo-screenshot.png)
+
 [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-3064-6168) [Kiwon Bowens ORCID iD](https://orcid.org/0009-0004-3064-6168)
 
 ## 🎯 Project Overview
