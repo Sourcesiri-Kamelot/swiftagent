@@ -95,12 +95,12 @@ logs/
 *.temp
 .cache/
 
-# OpenLLM Toolkit specific
-.openllm-toolkit/
-openllm-toolkit/
+# SwiftAgent Toolkit specific
+.swiftagent-toolkit/
+swiftagent-toolkit/
 generated/
 exports/
-*.openllm-cache
+*.swiftagent-cache
 *.toolkit-cache
 
 # Python virtual environments

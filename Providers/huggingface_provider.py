@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - HuggingFace Provider
+SwiftAgent Toolkit - HuggingFace Provider
 Free AI models from HuggingFace
 """
 

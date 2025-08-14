@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Beginner-Friendly CLI
+SwiftAgent Toolkit - Beginner-Friendly CLI
 Simple command-line interface for easy AI interaction
 """
 
@@ -60,7 +60,7 @@ class BeginnerCLI:
         """Print welcome banner"""
         banner = """
 ╔═══════════════════════════════════════════════════════════════╗
-║                    🚀 OpenLLM Toolkit                        ║
+║                    🚀 SwiftAgent Toolkit                        ║
 ║              Your Free AI Assistant is Ready!                ║
 ║                                                               ║
 ║  💡 Type your questions in plain English                     ║
@@ -457,7 +457,7 @@ Just type naturally - the AI understands context! 🎉
                 
                 # Handle commands
                 if command == "quit":
-                    self.print_colored("👋 Goodbye! Thanks for using OpenLLM Toolkit!", "cyan")
+                    self.print_colored("👋 Goodbye! Thanks for using SwiftAgent Toolkit!", "cyan")
                     break
                 elif command == "help":
                     self.print_help()
@@ -501,16 +501,15 @@ Just type naturally - the AI understands context! 🎉
 def create_parser():
     """Create argument parser"""
     parser = argparse.ArgumentParser(
-        description="OpenLLM Toolkit - Your Free AI Assistant",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="SwiftAgent Toolkit - Your Free AI Assistant",
         epilog="""
 Examples:
-  openllm                           # Start interactive mode
-  openllm chat "Hello AI"           # Quick chat
-  openllm read document.txt         # Read a file
-  openllm photo image.jpg           # Analyze an image
-  openllm help                      # Show help
-        """
+  swiftagent                           # Start interactive mode
+  swiftagent chat "Hello AI"           # Quick chat
+  swiftagent read document.txt         # Read a file
+  swiftagent photo image.jpg           # Analyze an image
+  swiftagent help                      # Show help
+        """,
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')

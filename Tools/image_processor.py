@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Image Processing and Vision
+SwiftAgent Toolkit - Image Processing and Vision
 Provides image reading, analysis, and text extraction capabilities
 """
 

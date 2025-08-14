@@ -1,4 +1,4 @@
-# OpenLLM Toolkit - Core Module
+# SwiftAgent Toolkit - Core Module
 # This file makes the Core directory a Python package
 
 from .llm_manager import LLMManager, llm_manager

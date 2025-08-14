@@ -1,5 +1,5 @@
 #!/bin/bash
-# OpenLLM Toolkit - Quick Start Script
+# SwiftAgent Toolkit - Quick Start Script
 # Automates setup for complete beginners
 
 set -e
@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e "${BLUE}🚀 OpenLLM Toolkit - Quick Start${NC}"
+echo -e "${BLUE}🚀 SwiftAgent Toolkit - Quick Start${NC}"
 echo -e "${BLUE}Setting up your free AI assistant...${NC}"
 echo ""
 
@@ -121,12 +121,12 @@ install_ollama() {
     ollama pull llama3.2:1b || print_warning "Failed to download model. You can do this later with: ollama pull llama3.2:1b"
 }
 
-# Install OpenLLM Toolkit
+# Install SwiftAgent Toolkit
 install_toolkit() {
-    print_status "Installing OpenLLM Toolkit..."
+    print_status "Installing SwiftAgent Toolkit..."
     
     # Create installation directory
-    INSTALL_DIR="$HOME/.openllm-toolkit"
+    INSTALL_DIR="$HOME/.swiftagent-toolkit"
     mkdir -p "$INSTALL_DIR"
     cd "$INSTALL_DIR"
     
@@ -148,23 +148,23 @@ install_toolkit() {
     # Install the toolkit
     pip install -e .
     
-    print_success "OpenLLM Toolkit installed successfully!"
+    print_success "SwiftAgent Toolkit installed successfully!"
 }
 
 # Create launcher script
 create_launcher() {
     print_status "Creating launcher script..."
     
-    INSTALL_DIR="$HOME/.openllm-toolkit"
+    INSTALL_DIR="$HOME/.swiftagent-toolkit"
     
     # Create main launcher
-    cat > "$INSTALL_DIR/openllm" << 'EOF'
+    cat > "$INSTALL_DIR/swiftagent" << 'EOF'
 #!/bin/bash
-source "$HOME/.openllm-toolkit/venv/bin/activate"
-cd "$HOME/.openllm-toolkit/toolkit"
+source "$HOME/.swiftagent-toolkit/venv/bin/activate"
+cd "$HOME/.swiftagent-toolkit/toolkit"
 python -m Interface.cli "$@"
 EOF
-    chmod +x "$INSTALL_DIR/openllm"
+    chmod +x "$INSTALL_DIR/swiftagent"
     
     # Add to PATH
     SHELL_RC=""
@@ -177,11 +177,11 @@ EOF
     fi
     
     if [ -n "$SHELL_RC" ]; then
-        if ! grep -q "openllm-toolkit" "$SHELL_RC"; then
+        if ! grep -q "swiftagent-toolkit" "$SHELL_RC"; then
             echo "" >> "$SHELL_RC"
-            echo "# OpenLLM Toolkit" >> "$SHELL_RC"
+            echo "# SwiftAgent Toolkit" >> "$SHELL_RC"
             echo "export PATH=\"$INSTALL_DIR:\$PATH\"" >> "$SHELL_RC"
-            print_success "Added OpenLLM Toolkit to PATH in $SHELL_RC"
+            print_success "Added SwiftAgent Toolkit to PATH in $SHELL_RC"
         fi
     fi
 }
@@ -190,7 +190,7 @@ EOF
 test_installation() {
     print_status "Testing installation..."
     
-    INSTALL_DIR="$HOME/.openllm-toolkit"
+    INSTALL_DIR="$HOME/.swiftagent-toolkit"
     cd "$INSTALL_DIR/toolkit"
     source venv/bin/activate
     
@@ -222,23 +222,23 @@ show_completion() {
     echo -e "${GREEN}╔═══════════════════════════════════════════════════════════════╗${NC}"
     echo -e "${GREEN}║               🎉 Setup Complete! 🎉                           ║${NC}"
     echo -e "${GREEN}║                                                               ║${NC}"
-    echo -e "${GREEN}║  Your OpenLLM Toolkit is ready to use!                       ║${NC}"
+    echo -e "${GREEN}║  Your SwiftAgent Toolkit is ready to use!                       ║${NC}"
     echo -e "${GREEN}║                                                               ║${NC}"
     echo -e "${GREEN}║  Quick Start:                                                 ║${NC}"
-    echo -e "${GREEN}║    openllm                    # Start interactive mode        ║${NC}"
-    echo -e "${GREEN}║    openllm chat \"Hello AI\"     # Quick chat                  ║${NC}"
-    echo -e "${GREEN}║    openllm status             # Check system status          ║${NC}"
+    echo -e "${GREEN}║    swiftagent                    # Start interactive mode        ║${NC}"
+    echo -e "${GREEN}║    swiftagent chat \"Hello AI\"     # Quick chat                  ║${NC}"
+    echo -e "${GREEN}║    swiftagent status             # Check system status          ║${NC}"
     echo -e "${GREEN}║                                                               ║${NC}"
-    echo -e "${GREEN}║  Need help? Run: openllm help                                 ║${NC}"
+    echo -e "${GREEN}║  Need help? Run: swiftagent help                                 ║${NC}"
     echo -e "${GREEN}╚═══════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     print_status "Restart your terminal or run: source ~/.bashrc"
-    print_status "Then start with: openllm"
+    print_status "Then start with: swiftagent"
 }
 
 # Main installation flow
 main() {
-    print_status "Starting OpenLLM Toolkit quick setup..."
+    print_status "Starting SwiftAgent Toolkit quick setup..."
     
     detect_os
     install_system_deps

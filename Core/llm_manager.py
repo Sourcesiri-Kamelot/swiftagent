@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Universal LLM Manager
+SwiftAgent Toolkit - Universal LLM Manager
 Provides unified interface for all LLM providers with intelligent routing
 """
 

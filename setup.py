@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Setup Script
+SwiftAgent Toolkit - Setup Script
 Package installation and distribution configuration
 """
 
@@ -18,7 +18,7 @@ def read_requirements():
         return [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="openllm-toolkit",
+    name="swiftagent-toolkit",
     version="1.0.0",
     author="Kiwon Bowens",
     author_email="Heloimai@helo-im.ai",
@@ -68,8 +68,8 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "openllm=Interface.cli:main",
-            "openllm-mcp=MCP.mcp_server:main",
+            "swiftagent=Interface.cli:main",
+        "swiftagent-mcp=MCP.mcp_server:main",
         ],
     },
     include_package_data=True,

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Self Healing System
+SwiftAgent Toolkit - Self Healing System
 Error correction, performance optimization, and automatic recovery
 """
 
@@ -42,7 +42,7 @@ class SelfHealingSystem:
     
     def __init__(self, data_dir: str = None):
         if data_dir is None:
-            data_dir = os.path.expanduser("~/.config/openllm-toolkit/self-healing")
+            data_dir = os.path.expanduser("~/.config/swiftagent-toolkit/self-healing")
         
         self.data_dir = Path(data_dir)
         self.data_dir.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Ollama Provider
+SwiftAgent Toolkit - Ollama Provider
 Local LLM hosting provider implementation
 """
 

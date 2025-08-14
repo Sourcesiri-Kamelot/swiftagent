@@ -1,12 +1,12 @@
-# 🚀 OpenLLM Toolkit - Universal Free LLM Integration Platform
+# 🚀 SwiftAgent Toolkit - Universal Free LLM Integration Platform
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent&env=OPENLLM_MODE&env=OLLAMA_HOST&env=HUGGINGFACE_API_KEY&env=GROQ_API_KEY&env-description=OpenLLM%20Configuration&env-link=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent%23environment-variables&project-name=openllm-toolkit&repository-name=openllm-toolkit&redirect-url=https%3A%2F%2Fopenllm-toolkit.vercel.app&demo-title=OpenLLM%20Toolkit&demo-description=Universal%20AI%20toolkit%20with%20free%20LLM%20providers%2C%20file%20operations%2C%20and%20image%20processing&demo-url=https%3A%2F%2Fopenllm-toolkit.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FSourcesiri-Kamelot%2Fswiftagent%2Fmain%2Fdocs%2Fdemo-screenshot.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent&env=SWIFT_AGENT_MODE&env=OLLAMA_HOST&env=HUGGINGFACE_API_KEY&env=GROQ_API_KEY&env-description=SwiftAgent%20Configuration&env-link=https%3A%2F%2Fgithub.com%2FSourcesiri-Kamelot%2Fswiftagent%23environment-variables&project-name=swiftagent-toolkit&repository-name=swiftagent-toolkit&redirect-url=https%3A%2F%2Fswiftagent-toolkit.vercel.app&demo-title=SwiftAgent%20Toolkit&demo-description=Universal%20AI%20toolkit%20with%20free%20LLM%20providers%2C%20file%20operations%2C%20and%20image%20processing&demo-url=https%3A%2F%2Fswiftagent-toolkit.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FSourcesiri-Kamelot%2Fswiftagent%2Fmain%2Fdocs%2Fdemo-screenshot.png)
 
 [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-3064-6168) [Kiwon Bowens ORCID iD](https://orcid.org/0009-0004-3064-6168)
 
 ## 🎯 Project Overview
 
-**OpenLLM Toolkit** is a comprehensive, beginner-friendly platform that democratizes access to free and open-source Large Language Models. It provides a unified interface to connect with Ollama, HuggingFace, Azure Functions, Amazon Q, and other LLM providers while offering powerful system integration capabilities including file operations, image processing, persistent memory, and self-healing functionality.
+**SwiftAgent Toolkit** is a comprehensive, beginner-friendly platform that democratizes access to free and open-source Large Language Models. It provides a unified interface to connect with Ollama, HuggingFace, Azure Functions, Amazon Q, and other LLM providers while offering powerful system integration capabilities including file operations, image processing, persistent memory, and self-healing functionality.
 
 ---
 
@@ -60,12 +60,12 @@ cd swiftagent
 ### **First Conversation**
 ```bash
 # Start the toolkit
-openllm start
+swiftagent start
 
 # Talk to your AI assistant
-openllm chat "Help me organize my photos"
-openllm chat "Write a letter to my friend"
-openllm chat "Fix this Python code: [paste your code]"
+swiftagent chat "Help me organize my photos"
+swiftagent chat "Write a letter to my friend"
+swiftagent chat "Fix this Python code: [paste your code]"
 ```
 
 ### **For Complete Beginners**
@@ -79,7 +79,7 @@ openllm chat "Fix this Python code: [paste your code]"
 ## 🏗 Architecture Overview
 
 ```
-OpenLLM Toolkit/
+SwiftAgent Toolkit/
 ├── Core/
 │   ├── llm_manager.py         # Universal LLM provider interface
 │   ├── memory_system.py       # Persistent memory and learning
@@ -141,33 +141,33 @@ OpenLLM Toolkit/
 ### **For Students**
 ```bash
 # Help with homework
-openllm chat "Explain quantum physics in simple terms"
-openllm analyze photo homework.jpg "What math problem is this?"
-openllm write essay "Write about climate change effects"
+swiftagent chat "Explain quantum physics in simple terms"
+swiftagent analyze photo homework.jpg "What math problem is this?"
+swiftagent write essay "Write about climate change effects"
 ```
 
 ### **For Professionals**
 ```bash
 # Code assistance
-openllm code "Create a Python web scraper for news articles"
-openllm debug error.log "Fix this error"
-openllm document project/ "Generate documentation for my code"
+swiftagent code "Create a Python web scraper for news articles"
+swiftagent debug error.log "Fix this error"
+swiftagent document project/ "Generate documentation for my code"
 ```
 
 ### **For Creative Work**
 ```bash
 # Creative projects
-openllm creative "Write a short story about time travel"
-openllm image analyze artwork.jpg "Critique this painting"
-openllm brainstorm "Ideas for a mobile app"
+swiftagent creative "Write a short story about time travel"
+swiftagent image analyze artwork.jpg "Critique this painting"
+swiftagent brainstorm "Ideas for a mobile app"
 ```
 
 ### **For Daily Tasks**
 ```bash
 # Personal assistance
-openllm organize photos/ "Sort my vacation photos"
-openllm schedule "Plan my week with these tasks"
-openllm research "Find information about healthy recipes"
+swiftagent organize photos/ "Sort my vacation photos"
+swiftagent schedule "Plan my week with these tasks"
+swiftagent research "Find information about healthy recipes"
 ```
 
 ---
@@ -230,7 +230,7 @@ openllm research "Find information about healthy recipes"
 
 ### **Option 1: One-Click Install (Recommended)**
 ```bash
-curl -fsSL https://openllm-toolkit.com/install | bash
+curl -fsSL https://swiftagent-toolkit.com/install | bash
 ```
 
 ### **Option 2: Manual Installation**
@@ -249,13 +249,13 @@ docker-compose up -d
 ### **Option 4: Package Manager**
 ```bash
 # Ubuntu/Debian
-sudo apt install openllm-toolkit
+sudo apt install swiftagent-toolkit
 
 # macOS
-brew install openllm-toolkit
+brew install swiftagent-toolkit
 
 # Windows
-winget install openllm-toolkit
+winget install swiftagent-toolkit
 ```
 
 ---

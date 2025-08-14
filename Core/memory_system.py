@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Memory System
+SwiftAgent Toolkit - Memory System
 Persistent memory for conversations, preferences, and learning
 """
 
@@ -40,11 +40,9 @@ class ConversationMemory:
     summary: Optional[str] = None
 
 class MemorySystem:
-    """Persistent memory system for OpenLLM Toolkit"""
-    
-    def __init__(self, data_dir: str = None):
-        if data_dir is None:
-            data_dir = os.path.expanduser("~/.config/openllm-toolkit/memory")
+    """Persistent memory system for SwiftAgent Toolkit"""
+        self.name = name
+        self.data_dir = os.path.expanduser("~/.config/swiftagent-toolkit/memory")
         
         self.data_dir = Path(data_dir)
         self.data_dir.mkdir(parents=True, exist_ok=True)

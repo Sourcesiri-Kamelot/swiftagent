@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Main Startup Script
+SwiftAgent Toolkit - Main Startup Script
 Comprehensive startup script that initializes all components and provides multiple interfaces
 """
 
@@ -21,14 +21,14 @@ logger = logging.getLogger(__name__)
 
 def setup_environment():
     """Setup the environment and check dependencies"""
-    logger.info("Setting up OpenLLM Toolkit environment...")
+    logger.info("Setting up SwiftAgent Toolkit environment...")
     
     # Add current directory to Python path
     current_dir = Path(__file__).parent
     sys.path.insert(0, str(current_dir))
     
     # Check for required directories
-    config_dir = Path.home() / ".config" / "openllm-toolkit"
+    config_dir = Path.home() / ".config" / "swiftagent-toolkit"
     config_dir.mkdir(parents=True, exist_ok=True)
     
     # Check Python version
@@ -94,7 +94,7 @@ def check_dependencies():
 
 async def initialize_components():
     """Initialize all toolkit components"""
-    logger.info("Initializing OpenLLM Toolkit components...")
+    logger.info("Initializing SwiftAgent Toolkit components...")
     
     try:
         # Import components
@@ -171,7 +171,7 @@ def show_status():
         from Core.load_balancer import load_balancer
         
         print("\n" + "="*50)
-        print("OpenLLM Toolkit Status")
+        print("SwiftAgent Toolkit Status")
         print("="*50)
         
         # LLM Providers
@@ -206,7 +206,7 @@ def show_status():
 
 def main():
     """Main entry point"""
-    parser = argparse.ArgumentParser(description="OpenLLM Toolkit - Universal AI Assistant")
+    parser = argparse.ArgumentParser(description="SwiftAgent Toolkit - Universal AI Assistant")
     parser.add_argument("--mode", choices=["cli", "mcp", "web", "status"], 
                        default="cli", help="Mode to run in")
     parser.add_argument("--port", type=int, default=8000, help="Web server port")

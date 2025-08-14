@@ -1,5 +1,5 @@
 #!/bin/bash
-# OpenLLM Toolkit - Web Deployment Script
+# SwiftAgent Toolkit - Web Deployment Script
 # This script is triggered from the web interface for easy deployment
 
 set -e
@@ -104,8 +104,8 @@ setup_python_env() {
     print_status "Setting up Python environment..."
     
     # Create virtual environment
-    python3 -m venv openllm-env
-    source openllm-env/bin/activate
+    python3 -m venv swiftagent-env
+source swiftagent-env/bin/activate
     
     # Upgrade pip
     pip install --upgrade pip
@@ -117,49 +117,46 @@ setup_python_env() {
 
 # Function to clone repository
 clone_repo() {
-    print_status "Cloning OpenLLM Toolkit repository..."
+    print_status "Cloning SwiftAgent Toolkit repository..."
     
-    if [ -d "openllm-toolkit" ]; then
-        print_status "Repository already exists, updating..."
-        cd openllm-toolkit
-        git pull origin main
-    else
-        git clone https://github.com/Sourcesiri-Kamelot/swiftagent.git openllm-toolkit
-        cd openllm-toolkit
-    fi
+    if [ -d "swiftagent-toolkit" ]; then
+    cd swiftagent-toolkit
+else
+    git clone https://github.com/Sourcesiri-Kamelot/swiftagent.git swiftagent-toolkit
+    cd swiftagent-toolkit
 }
 
 # Function to create launcher scripts
 create_launchers() {
     print_status "Creating launcher scripts..."
     
-    # Create openllm command
-    cat > /usr/local/bin/openllm << 'EOF'
+    # Create swiftagent command
+    cat > /usr/local/bin/swiftagent << 'EOF'
 #!/bin/bash
-cd "$(dirname "$0")/openllm-toolkit"
-source openllm-env/bin/activate
-python start_openllm.py "$@"
+cd "$(dirname "$0")/swiftagent-toolkit"
+source swiftagent-env/bin/activate
+python start_swiftagent.py "$@"
 EOF
     
-    chmod +x /usr/local/bin/openllm
+    chmod +x /usr/local/bin/swiftagent
     
     # Create web launcher
-    cat > /usr/local/bin/openllm-web << 'EOF'
+    cat > /usr/local/bin/swiftagent-web << 'EOF'
 #!/bin/bash
-cd "$(dirname "$0")/openllm-toolkit"
-source openllm-env/bin/activate
-python start_openllm.py --mode web
+cd "$(dirname "$0")/swiftagent-toolkit"
+source swiftagent-env/bin/activate
+python start_swiftagent.py --mode web
 EOF
     
-    chmod +x /usr/local/bin/openllm-web
+    chmod +x /usr/local/bin/swiftagent-web
 }
 
 # Function to test installation
 test_installation() {
     print_status "Testing installation..."
     
-    cd openllm-toolkit
-    source openllm-env/bin/activate
+    cd swiftagent-toolkit
+source swiftagent-env/bin/activate
     
     # Test basic functionality
     if python -c "import sys; print('Python OK')"; then
@@ -170,8 +167,8 @@ test_installation() {
     fi
     
     # Test toolkit startup
-    if timeout 10s python start_openllm.py --mode status > /dev/null 2>&1; then
-        print_success "OpenLLM Toolkit startup test passed"
+    if timeout 10s python start_swiftagent.py --mode status > /dev/null 2>&1; then
+        print_success "SwiftAgent Toolkit startup test passed"
     else
         print_warning "Startup test failed, but installation may still work"
     fi
@@ -179,21 +176,21 @@ test_installation() {
 
 # Function to show completion message
 show_completion() {
-    print_success "🎉 OpenLLM Toolkit installation complete!"
+    print_success "🎉 SwiftAgent Toolkit installation complete!"
     echo
     echo "🚀 Quick Start Commands:"
-    echo "  • Web Interface: openllm-web"
-    echo "  • Command Line: openllm"
-    echo "  • Status Check: openllm --mode status"
+    echo "  • Web Interface: swiftagent-web"
+echo "  • Command Line: swiftagent"
+echo "  • Status Check: swiftagent --mode status"
     echo
     echo "📱 Web Interface: http://localhost:8000"
-    echo "💻 CLI Commands: openllm chat 'Hello AI'"
-    echo "🤖 MCP Server: openllm --mode mcp"
+    echo "💻 CLI Commands: swiftagent chat 'Hello AI'"
+echo "🤖 MCP Server: swiftagent --mode mcp"
     echo
     echo "📖 Documentation: https://github.com/Sourcesiri-Kamelot/swiftagent"
     echo "💬 Community: GitHub Discussions"
     echo
-    print_success "Ready to use OpenLLM Toolkit!"
+    print_success "Ready to use SwiftAgent Toolkit!"
 }
 
 # Function to handle errors
@@ -206,7 +203,7 @@ handle_error() {
 
 # Main installation function
 main() {
-    print_status "🚀 Starting OpenLLM Toolkit deployment..."
+    print_status "🚀 Starting SwiftAgent Toolkit deployment..."
     echo
     
     # Detect OS

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Web Backend API
+SwiftAgent Toolkit - Web Backend API
 FastAPI-based web backend with load balancing and all toolkit features
 """
 
@@ -69,7 +69,7 @@ class MemoryRequest(BaseModel):
 
 # Create FastAPI app
 app = FastAPI(
-    title="OpenLLM Toolkit API",
+    title="SwiftAgent Toolkit API",
     description="Universal AI toolkit with file operations, image processing, and memory",
     version="1.0.0"
 )

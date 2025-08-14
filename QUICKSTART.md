@@ -1,6 +1,6 @@
-# 🚀 OpenLLM Toolkit - Quick Start Guide
+# 🚀 SwiftAgent Toolkit - Quick Start Guide
 
-Get up and running with OpenLLM Toolkit in under 5 minutes!
+Get up and running with SwiftAgent Toolkit in under 5 minutes!
 
 ## ⚡ One-Click Installation
 
@@ -14,40 +14,40 @@ curl -fsSL https://raw.githubusercontent.com/Sourcesiri-Kamelot/swiftagent/main/
 ### 1. Start the Toolkit
 ```bash
 # Interactive mode (recommended for beginners)
-openllm
+swiftagent
 
 # Quick chat
-openllm chat "Hello, how are you?"
+swiftagent chat "Hello, how are you?"
 
 # Check system status
-openllm status
+swiftagent status
 ```
 
 ### 2. Try Basic Commands
 ```bash
 # Chat with AI
-openllm chat "Write a poem about cats"
+swiftagent chat "Write a poem about cats"
 
 # Read a file
-openllm read document.txt
+swiftagent read document.txt
 
 # Analyze an image
-openllm photo vacation.jpg
+swiftagent photo vacation.jpg
 
 # List files in directory
-openllm list Documents
+swiftagent list Documents
 ```
 
 ### 3. Advanced Usage
 ```bash
 # Extract text from image
-openllm text receipt.png
+swiftagent text receipt.png
 
 # Search for files
-openllm search "vacation photos"
+swiftagent search "vacation photos"
 
 # Get AI description of image
-openllm describe artwork.jpg
+swiftagent describe artwork.jpg
 ```
 
 ## 🔧 Setup LLM Providers
@@ -67,14 +67,14 @@ ollama serve
 ### HuggingFace (Free Tier)
 ```bash
 # Get free API key from https://huggingface.co/settings/tokens
-# Add to ~/.config/openllm-toolkit/.env:
+# Add to ~/.config/swiftagent-toolkit/.env:
 HUGGINGFACE_API_KEY=your_key_here
 ```
 
 ### Groq (Fast Inference)
 ```bash
 # Get API key from https://console.groq.com/
-# Add to ~/.config/openllm-toolkit/.env:
+# Add to ~/.config/swiftagent-toolkit/.env:
 GROQ_API_KEY=your_key_here
 ```
 
@@ -91,16 +91,16 @@ The toolkit can only access files in these safe directories:
 ### Examples
 ```bash
 # Read a text file
-openllm read ~/Documents/letter.txt
+swiftagent read ~/Documents/letter.txt
 
 # Write content to file
-openllm write ~/Documents/response.txt "This is my response"
+swiftagent write ~/Documents/response.txt "This is my response"
 
 # List files in directory
-openllm list ~/Downloads
+swiftagent list ~/Downloads
 
 # Search for files
-openllm search "invoice" ~/Documents
+swiftagent search "invoice" ~/Documents
 ```
 
 ## 🖼️ Image Processing
@@ -111,13 +111,13 @@ openllm search "invoice" ~/Documents
 ### Examples
 ```bash
 # Analyze image
-openllm photo ~/Pictures/vacation.jpg
+swiftagent photo ~/Pictures/vacation.jpg
 
 # Extract text from image
-openllm text ~/Pictures/receipt.png
+swiftagent text ~/Pictures/receipt.png
 
 # Get AI description
-openllm describe ~/Pictures/artwork.jpg
+swiftagent describe ~/Pictures/artwork.jpg
 ```
 
 ## 🤖 MCP Integration
@@ -125,7 +125,7 @@ openllm describe ~/Pictures/artwork.jpg
 ### Start MCP Server
 ```bash
 # Start the MCP server
-openllm-mcp
+swiftagent-mcp
 
 # Or run directly
 python -m MCP.mcp_server
@@ -172,19 +172,19 @@ pip install Pillow
 ### Get Help
 ```bash
 # Show all commands
-openllm help
+swiftagent help
 
 # Check system status
-openllm status
+swiftagent status
 
 # List providers
-openllm providers
+swiftagent providers
 ```
 
 ## 🎉 Next Steps
 
 1. **Explore Features**: Try different commands and see what the toolkit can do
-2. **Customize**: Edit `~/.config/openllm-toolkit/config.json` to customize settings
+2. **Customize**: Edit `~/.config/swiftagent-toolkit/config.json` to customize settings
 3. **Add Providers**: Configure additional LLM providers for more options
 4. **Integrate**: Use the MCP server with your favorite AI clients
 
@@ -196,4 +196,4 @@ openllm providers
 
 ---
 
-**Ready to experience the power of free, open-source AI? Start with `openllm` and explore the possibilities!** 🚀 
+**Ready to experience the power of free, open-source AI? Start with `swiftagent` and explore the possibilities!** 🚀 

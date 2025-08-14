@@ -1,6 +1,6 @@
 #!/bin/bash
 """
-OpenLLM Toolkit - One-Click Installer
+SwiftAgent Toolkit - One-Click Installer
 Automated installation script for complete setup
 """
 
@@ -15,7 +15,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-INSTALL_DIR="$HOME/.openllm-toolkit"
+INSTALL_DIR="$HOME/.swiftagent-toolkit"
 VENV_DIR="$INSTALL_DIR/venv"
 REPO_URL="https://github.com/Sourcesiri-Kamelot/swiftagent.git"
 
@@ -39,7 +39,7 @@ print_error() {
 print_header() {
     echo -e "${CYAN}"
     echo "╔═══════════════════════════════════════════════════════════════╗"
-    echo "║                 🚀 OpenLLM Toolkit Installer                 ║"
+    echo "║                 🚀 SwiftAgent Toolkit Installer                 ║"
     echo "║              Setting up your free AI assistant...            ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -148,9 +148,9 @@ create_venv() {
     pip install --upgrade pip setuptools wheel
 }
 
-# Function to install OpenLLM Toolkit
+# Function to install SwiftAgent Toolkit
 install_toolkit() {
-    print_status "Installing OpenLLM Toolkit..."
+    print_status "Installing SwiftAgent Toolkit..."
     
     # Clone repository
     cd "$INSTALL_DIR"
@@ -216,7 +216,7 @@ setup_ollama() {
 create_config() {
     print_status "Creating default configuration..."
     
-    CONFIG_DIR="$HOME/.config/openllm-toolkit"
+    CONFIG_DIR="$HOME/.config/swiftagent-toolkit"
     mkdir -p "$CONFIG_DIR"
     
     cat > "$CONFIG_DIR/config.json" << EOF
@@ -265,22 +265,22 @@ create_launchers() {
     print_status "Creating launcher scripts..."
     
     # Create main launcher
-    cat > "$INSTALL_DIR/openllm" << EOF
+    cat > "$INSTALL_DIR/swiftagent" << EOF
 #!/bin/bash
 source "$VENV_DIR/bin/activate"
 cd "$INSTALL_DIR/toolkit"
 python -m Interface.cli "\$@"
 EOF
-    chmod +x "$INSTALL_DIR/openllm"
+    chmod +x "$INSTALL_DIR/swiftagent"
     
     # Create MCP server launcher
-    cat > "$INSTALL_DIR/openllm-mcp" << EOF
+    cat > "$INSTALL_DIR/swiftagent-mcp" << EOF
 #!/bin/bash
 source "$VENV_DIR/bin/activate"
 cd "$INSTALL_DIR/toolkit"
 python -m MCP.mcp_server
 EOF
-    chmod +x "$INSTALL_DIR/openllm-mcp"
+    chmod +x "$INSTALL_DIR/swiftagent-mcp"
     
     # Add to PATH
     SHELL_RC=""
@@ -293,11 +293,11 @@ EOF
     fi
     
     if [ -n "$SHELL_RC" ]; then
-        if ! grep -q "openllm-toolkit" "$SHELL_RC"; then
+        if ! grep -q "swiftagent-toolkit" "$SHELL_RC"; then
             echo "" >> "$SHELL_RC"
-            echo "# OpenLLM Toolkit" >> "$SHELL_RC"
+            echo "# SwiftAgent Toolkit" >> "$SHELL_RC"
             echo "export PATH=\"$INSTALL_DIR:\$PATH\"" >> "$SHELL_RC"
-            print_success "Added OpenLLM Toolkit to PATH in $SHELL_RC"
+            print_success "Added SwiftAgent Toolkit to PATH in $SHELL_RC"
         fi
     fi
 }
@@ -337,23 +337,23 @@ show_completion() {
     echo "╔═══════════════════════════════════════════════════════════════╗"
     echo "║               🎉 Installation Complete! 🎉                   ║"
     echo "║                                                               ║"
-    echo "║  Your OpenLLM Toolkit is ready to use!                       ║"
+    echo "║  Your SwiftAgent Toolkit is ready to use!                       ║"
     echo "║                                                               ║"
     echo "║  Quick Start:                                                 ║"
-    echo "║    openllm                    # Start interactive mode        ║"
-    echo "║    openllm chat \"Hello AI\"     # Quick chat                  ║"
-    echo "║    openllm status             # Check system status          ║"
+    echo "║    swiftagent                    # Start interactive mode        ║"
+    echo "║    swiftagent chat \"Hello AI\"     # Quick chat                  ║"
+    echo "║    swiftagent status             # Check system status          ║"
     echo "║                                                               ║"
     echo "║  Files:                                                       ║"
     echo "║    Install dir: $INSTALL_DIR                  ║"
-    echo "║    Config: ~/.config/openllm-toolkit/config.json             ║"
+    echo "║    Config: ~/.config/swiftagent-toolkit/config.json             ║"
     echo "║                                                               ║"
-    echo "║  Need help? Run: openllm help                                 ║"
+    echo "║  Need help? Run: swiftagent help                                 ║"
     echo "╚═══════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
     
     print_status "Restart your terminal or run: source ~/.bashrc"
-    print_status "Then start with: openllm"
+    print_status "Then start with: swiftagent"
 }
 
 # Function to handle errors
@@ -377,7 +377,7 @@ main() {
         fi
     fi
     
-    print_status "Starting OpenLLM Toolkit installation..."
+    print_status "Starting SwiftAgent Toolkit installation..."
     
     detect_os || handle_error "OS detection"
     
@@ -385,7 +385,7 @@ main() {
     echo -e "${YELLOW}This installer will:${NC}"
     echo "  • Install system dependencies (requires sudo)"
     echo "  • Set up Python virtual environment"
-    echo "  • Install OpenLLM Toolkit and dependencies"
+    echo "  • Install SwiftAgent Toolkit and dependencies"
     echo "  • Configure Ollama for local AI models"
     echo "  • Create launcher scripts"
     echo ""

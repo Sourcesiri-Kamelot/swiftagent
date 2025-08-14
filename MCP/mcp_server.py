@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - MCP Server
+SwiftAgent Toolkit - MCP Server
 Comprehensive Model Context Protocol server integrating all toolkit features
 """
 
@@ -77,7 +77,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create MCP server instance
-server = Server("openllm-toolkit")
+server = Server("swiftagent-toolkit")
 
 # Tool definitions
 TOOLS = [
@@ -756,7 +756,9 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
             capabilities_json = json.dumps(capabilities, indent=2)
             return [types.TextContent(
                 type="text",
-                text=f"OpenLLM Toolkit Capabilities:\n\n{capabilities_json}"
+                text=f"SwiftAgent Toolkit Capabilities:
+
+{capabilities_json}"
             )]
         
         elif name == "health_check":
@@ -904,7 +906,7 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
 
 async def main():
     """Main MCP server entry point"""
-    logger.info("Starting OpenLLM Toolkit MCP Server...")
+    logger.info("Starting SwiftAgent Toolkit MCP Server...")
     
     # Initialize LLM providers
     try:
@@ -919,7 +921,7 @@ async def main():
     
     # Start MCP server
     async with stdio_server() as (read_stream, write_stream):
-        logger.info("OpenLLM Toolkit MCP Server is ready!")
+        logger.info("SwiftAgent Toolkit MCP Server is ready!")
         await server.run(
             read_stream,
             write_stream,

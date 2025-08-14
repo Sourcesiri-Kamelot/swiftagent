@@ -1,4 +1,4 @@
-# OpenLLM Toolkit - Providers Module
+# SwiftAgent Toolkit - Providers Module
 # This file makes the Providers directory a Python package
 
 from .ollama_provider import OllamaProvider

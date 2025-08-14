@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Groq Provider
+SwiftAgent Toolkit - Groq Provider
 Fast inference with free tier
 """
 

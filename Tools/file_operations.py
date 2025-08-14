@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Secure File Operations
+SwiftAgent Toolkit - Secure File Operations
 Provides safe file read/write operations with permission management
 """
 
@@ -463,7 +463,7 @@ class FileOperations:
                 )
             
             # Move to trash directory instead of permanent deletion
-            trash_dir = Path.home() / ".openllm_trash"
+            trash_dir = Path.home() / ".swiftagent_trash"
             trash_dir.mkdir(exist_ok=True)
             
             import time
@@ -587,7 +587,7 @@ if __name__ == "__main__":
     print(f"Read result: {result.message}")
     
     # Test writing a file
-    result = ops.write_file("test_output.txt", "Hello from OpenLLM Toolkit!")
+    result = ops.write_file("test_output.txt", "Hello from SwiftAgent Toolkit!")
     print(f"Write result: {result.message}")
     
     # Test listing directory

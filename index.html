@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenLLM Toolkit - Universal Free LLM Integration Platform</title>
+    <title>SwiftAgent Toolkit - Universal Free LLM Integration Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +121,7 @@
         <div class="hero-content p-4 scroll-animate">
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Universal Free LLM Integration Platform</h1>
             <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-                Introducing OpenLLM Toolkit. A comprehensive, beginner-friendly platform that democratizes access to free and open-source Large Language Models with powerful system integration capabilities.
+                Introducing SwiftAgent Toolkit. A comprehensive, beginner-friendly platform that democratizes access to free and open-source Large Language Models with powerful system integration capabilities.
             </p>
             <a href="#features" class="primary-btn text-white font-bold py-3 px-8 rounded-full text-lg">
                 Get Started Free
@@ -133,7 +133,7 @@
 
         <section id="features" class="mb-24 scroll-animate">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Why Choose OpenLLM Toolkit?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Why Choose SwiftAgent Toolkit?</h2>
                 <p class="text-slate-400">A comprehensive solution that gives you the power of commercial AI assistants, completely free and open-source.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -163,7 +163,7 @@
         <section id="capabilities" class="mb-24 scroll-animate">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Powerful Capabilities</h2>
-                <p class="text-slate-400 max-w-3xl mx-auto">OpenLLM Toolkit provides enterprise-grade AI capabilities with the simplicity and accessibility of open-source software.</p>
+                <p class="text-slate-400 max-w-3xl mx-auto">SwiftAgent Toolkit provides enterprise-grade AI capabilities with the simplicity and accessibility of open-source software.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="text-center p-6">
@@ -187,7 +187,7 @@
         <section id="demo" class="mb-24 scroll-animate">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">See It In Action</h2>
-                <p class="text-slate-400 max-w-3xl mx-auto">Experience the power of OpenLLM Toolkit with our interactive demo. Try the commands below to see how easy it is to use.</p>
+                <p class="text-slate-400 max-w-3xl mx-auto">Experience the power of SwiftAgent Toolkit with our interactive demo. Try the commands below to see how easy it is to use.</p>
             </div>
 
             <div class="glass-pane rounded-2xl p-4 md:p-6 lg:p-8">
@@ -198,7 +198,7 @@
                             <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                             <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
-                        <div class="flex-grow text-center text-sm text-slate-400 font-mono">OpenLLM Toolkit :: Free AI Assistant</div>
+                        <div class="flex-grow text-center text-sm text-slate-400 font-mono">SwiftAgent Toolkit :: Free AI Assistant</div>
                     </div>
 
                     <div class="p-6 md:p-8 grid lg:grid-cols-5 gap-6">
@@ -298,11 +298,11 @@
 
         <footer class="text-center glass-pane py-16 rounded-2xl scroll-animate">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to experience free AI?</h2>
-            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Join thousands of users who are already using OpenLLM Toolkit to get more done with AI.</p>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Join thousands of users who are already using SwiftAgent Toolkit to get more done with AI.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="deployOpenLLM()" class="primary-btn text-white font-bold py-3 px-8 rounded-full flex items-center gap-2">
+                <button onclick="deploySwiftAgent()" class="primary-btn text-white font-bold py-3 px-8 rounded-full flex items-center gap-2">
                     <span>🚀</span>
-                    Deploy OpenLLM Now
+                    Deploy SwiftAgent Now
                 </button>
                 <button onclick="window.location.href='https://github.com/Sourcesiri-Kamelot/swiftagent'" class="secondary-btn text-white font-bold py-3 px-8 rounded-full">View on GitHub</button>
             </div>
@@ -404,7 +404,7 @@
                  if (activeButton) activeButton.classList.add('bg-blue-500/20', 'border-blue-500');
             }
 
-            // Real AI functionality with OpenLLM Toolkit
+            // Real AI functionality with SwiftAgent Toolkit
             buttons.chat.addEventListener('click', async () => {
                 setActiveButton(buttons.chat);
                 showLoading();
@@ -417,7 +417,7 @@
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            message: "Hello! Tell me about the OpenLLM Toolkit and what I can do with it.",
+                            message: "Hello! Tell me about the SwiftAgent Toolkit and what I can do with it.",
                             temperature: 0.7,
                             max_tokens: 500
                         })
@@ -441,7 +441,7 @@
                         const response = `
                             <div class="glass-pane p-4 rounded-md mb-3">
                                 <h5 class="font-semibold text-white mb-2">🤖 AI Response:</h5>
-                                <p class="text-sm">Hello! I'm your OpenLLM Toolkit AI assistant. I can help you with:</p>
+                                <p class="text-sm">Hello! I'm your SwiftAgent Toolkit AI assistant. I can help you with:</p>
                                 <ul class="text-sm mt-2 space-y-1">
                                     <li>• Writing and editing documents</li>
                                     <li>• Analyzing images and extracting text</li>
@@ -449,7 +449,7 @@
                                     <li>• Answering questions and solving problems</li>
                                     <li>• Creating content and brainstorming ideas</li>
                                 </ul>
-                                <p class="text-sm mt-3 text-green-400">💡 Try: "openllm chat 'Write a poem about AI'"</p>
+                                <p class="text-sm mt-3 text-green-400">💡 Try: "swiftagent chat 'Write a poem about AI'"</p>
                             </div>
                         `;
                         showContent(`<h4 class="font-bold text-white mb-3">✨ AI Chat Demo:</h4>${response}`);
@@ -459,7 +459,7 @@
                     const response = `
                         <div class="glass-pane p-4 rounded-md mb-3">
                             <h5 class="font-semibold text-white mb-2">🤖 AI Response:</h5>
-                            <p class="text-sm">Hello! I'm your OpenLLM Toolkit AI assistant. I can help you with:</p>
+                            <p class="text-sm">Hello! I'm your SwiftAgent Toolkit AI assistant. I can help you with:</p>
                             <ul class="text-sm mt-2 space-y-1">
                                 <li>• Writing and editing documents</li>
                                 <li>• Analyzing images and extracting text</li>
@@ -467,7 +467,7 @@
                                 <li>• Answering questions and solving problems</li>
                                 <li>• Creating content and brainstorming ideas</li>
                             </ul>
-                            <p class="text-sm mt-3 text-green-400">💡 Try: "openllm chat 'Write a poem about AI'"</p>
+                            <p class="text-sm mt-3 text-green-400">💡 Try: "swiftagent chat 'Write a poem about AI'"</p>
                         </div>
                     `;
                     showContent(`<h4 class="font-bold text-white mb-3">✨ AI Chat Demo:</h4>${response}`);
@@ -490,7 +490,7 @@
                                 <li>• /tmp</li>
                                 <li>• /workspace</li>
                             </ul>
-                            <p class="text-sm text-green-400">💡 Try: "openllm read document.txt" or "openllm write newfile.txt 'Hello world'"</p>
+                            <p class="text-sm text-green-400">💡 Try: "swiftagent read document.txt" or "swiftagent write newfile.txt 'Hello world'"</p>
                         </div>
                     `;
                     showContent(`<h4 class="font-bold text-white mb-3">✨ File Operations Demo:</h4>${response}`);
@@ -513,7 +513,7 @@
                                 <li>• Process multiple formats (JPEG, PNG, GIF, etc.)</li>
                                 <li>• Create thumbnails and resize images</li>
                             </ul>
-                            <p class="text-sm text-green-400">💡 Try: "openllm photo image.jpg" or "openllm text receipt.png"</p>
+                            <p class="text-sm text-green-400">💡 Try: "swiftagent photo image.jpg" or "swiftagent text receipt.png"</p>
                         </div>
                     `;
                     showContent(`<h4 class="font-bold text-white mb-3">✨ Image Processing Demo:</h4>${response}`);
@@ -534,7 +534,7 @@
                             </div>
                             <p class="text-sm mb-3">Then start using:</p>
                             <div class="bg-slate-800 p-3 rounded text-green-400 font-mono text-sm">
-                                openllm
+                                swiftagent
                             </div>
                             <p class="text-sm mt-3 text-blue-400">📖 <a href="https://github.com/Sourcesiri-Kamelot/swiftagent#readme" class="underline">View full documentation</a></p>
                         </div>
@@ -556,14 +556,14 @@
             });
         });
         
-        // Deploy OpenLLM function
-        function deployOpenLLM() {
+        // Deploy SwiftAgent function
+function deploySwiftAgent() {
             // Show skill-based deployment modal
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
             modal.innerHTML = `
                 <div class="bg-slate-800 rounded-lg p-8 max-w-2xl w-full mx-4">
-                    <h3 class="text-xl font-bold text-white mb-4">🚀 Deploy OpenLLM Toolkit</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">🚀 Deploy SwiftAgent Toolkit</h3>
                     <p class="text-slate-300 mb-6">Choose your experience level to get the best setup:</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -795,7 +795,7 @@
                         <div class="space-y-2 text-sm">
                             <div class="bg-slate-800 p-2 rounded font-mono text-green-400">curl -fsSL install.sh | bash</div>
                             <div class="bg-slate-800 p-2 rounded font-mono text-green-400">git clone https://github.com/Sourcesiri-Kamelot/swiftagent.git</div>
-                            <div class="bg-slate-800 p-2 rounded font-mono text-green-400">python start_openllm.py --mode web</div>
+                            <div class="bg-slate-800 p-2 rounded font-mono text-green-400">python start_swiftagent.py --mode web</div>
                         </div>
                     </div>
                     
@@ -897,12 +897,12 @@
              terminal.innerHTML = `
                  <div class="bg-black rounded-lg p-6 max-w-2xl w-full mx-4 h-96 overflow-hidden">
                      <div class="flex items-center justify-between mb-4">
-                         <h3 class="text-white font-bold">🚀 OpenLLM Toolkit Deployment</h3>
+                         <h3 class="text-white font-bold">🚀 SwiftAgent Toolkit Deployment</h3>
                          <button onclick="closeTerminal()" class="text-white hover:text-red-400">✕</button>
                      </div>
                      
                      <div id="terminal-output" class="bg-slate-900 p-4 rounded h-80 overflow-y-auto font-mono text-sm text-green-400">
-                         <div class="mb-2">$ Starting OpenLLM Toolkit deployment...</div>
+                         <div class="mb-2">$ Starting SwiftAgent Toolkit deployment...</div>
                          <div class="mb-2">$ Skill level: ${skillLevel}</div>
                          <div class="mb-2">$ Detecting system...</div>
                      </div>
@@ -940,11 +940,11 @@
                      '$ Installing Python dependencies...',
                      '$ Setting up free AI models...',
                      '$ ✅ Installation complete!',
-                     '$ 🎉 OpenLLM Toolkit is ready!',
+                     '$ 🎉 SwiftAgent Toolkit is ready!',
                      '$ ',
                      '$ Next steps:',
                      '$ 1. Open web interface: http://localhost:8000',
-                     '$ 2. Try: openllm chat "Hello AI"',
+                     '$ 2. Try: swiftagent chat "Hello AI"',
                      '$ 3. Explore features in the web UI'
                  ],
                  'intermediate': [
@@ -953,27 +953,27 @@
                      '$ git clone https://github.com/Sourcesiri-Kamelot/swiftagent.git',
                      '$ cd swiftagent',
                      '$ pip install -r requirements.txt',
-                     '$ python start_openllm.py --mode web',
+                     '$ python start_swiftagent.py --mode web',
                      '$ ✅ Custom installation complete!',
                      '$ ',
                      '$ Your setup includes:',
                      '$ • Web interface at http://localhost:8000',
-                     '$ • CLI commands: openllm',
-                     '$ • MCP server: python start_openllm.py --mode mcp'
+                     '$ • CLI commands: swiftagent',
+                     '$ • MCP server: python start_swiftagent.py --mode mcp'
                  ],
                  'pro-cli': [
                      '$ 🚀 Pro CLI setup...',
                      '$ git clone https://github.com/Sourcesiri-Kamelot/swiftagent.git',
                      '$ cd swiftagent',
                      '$ pip install -r requirements.txt',
-                     '$ python start_openllm.py --mode cli',
+                     '$ python start_swiftagent.py --mode cli',
                      '$ ✅ CLI setup complete!',
                      '$ ',
                      '$ Available commands:',
-                     '$ • openllm chat "message"',
-                     '$ • openllm read filename.txt',
-                     '$ • openllm photo image.jpg',
-                     '$ • openllm status'
+                     '$ • swiftagent chat "message"',
+                     '$ • swiftagent read filename.txt',
+                     '$ • swiftagent photo image.jpg',
+                     '$ • swiftagent status'
                  ],
                  'pro-docker': [
                      '$ 🐳 Pro Docker setup...',
@@ -999,7 +999,7 @@
                      currentStep++;
                      setTimeout(addStep, 800);
                  } else {
-                     output.innerHTML += `<div class="mb-1 text-yellow-400">$ ✅ Deployment complete! Ready to use OpenLLM Toolkit.</div>`;
+                     output.innerHTML += `<div class="mb-1 text-yellow-400">$ ✅ Deployment complete! Ready to use SwiftAgent Toolkit.</div>`;
                  }
              }
              
@@ -1013,7 +1013,7 @@
                  output.innerHTML += `<div class="mb-1">$ Running installation...</div>`;
                  setTimeout(() => {
                      output.innerHTML += `<div class="mb-1 text-green-400">$ ✅ Installation successful!</div>`;
-                     output.innerHTML += `<div class="mb-1">$ 🚀 OpenLLM Toolkit is ready to use!</div>`;
+                     output.innerHTML += `<div class="mb-1">'$ 🚀 SwiftAgent Toolkit is ready to use!',</div>`;
                  }, 2000);
              } else if (cmd === 'demo') {
                  output.innerHTML += `<div class="mb-1">$ Running demo...</div>`;

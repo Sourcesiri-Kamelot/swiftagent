@@ -1,4 +1,4 @@
-# OpenLLM Toolkit - Python Dependencies
+# SwiftAgent Toolkit - Python Dependencies
 
 # Core dependencies
 asyncio

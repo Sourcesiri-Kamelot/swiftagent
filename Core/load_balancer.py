@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-OpenLLM Toolkit - Load Balancer
+SwiftAgent Toolkit - Load Balancer
 Distributes requests across multiple LLM providers for optimal performance
 """
 
